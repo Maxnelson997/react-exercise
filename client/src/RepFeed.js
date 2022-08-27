@@ -7,7 +7,7 @@ const RepFeed = () => {
     return (
         <>
             <div className='layout'>
-                <div className='layout-header'>Find your reps.</div>
+                <h2 className='layout-header'>Find your reps.</h2>
                 <div className='layout-content'>
                     {
                         reps.map(rep => {
@@ -25,10 +25,10 @@ const RepFeed = () => {
                         })
                     }
                 </div>
-                <div className='layout-footer'>
+                <h2 className='layout-footer'>
                     {error && 'Error'}
                     {loading && 'Loading'}
-                </div>
+                </h2>
 
             </div>
         </>
