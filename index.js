@@ -49,7 +49,7 @@ function handleApiError(res, next) {
   };
 }
 
-const port = process.env.PORT ?? 3000;
+const port = process.env.PORT ?? 3100;
 
 app.listen(port, () => {
   console.log('API listening at http://localhost:%s', port);
