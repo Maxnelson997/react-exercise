@@ -2,18 +2,6 @@ import useFetchReps from './hooks/useFetchReps';
 import './RepFeed.css';
 
 const RepFeed = () => {
-
-    // const reps = [
-    //     {
-    //         name: 'John-117',
-    //         state: 'Earth'
-    //     },
-    //     {
-    //         name: 'Cortana',
-    //         state: 'Earth'
-    //     }
-    // ]
-
     const { reps } = useFetchReps('UT');
 
     return (
