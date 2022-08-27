@@ -2,7 +2,7 @@ import useFetchReps from './hooks/useFetchReps';
 import './RepFeed.css';
 
 const RepFeed = () => {
-    const { reps } = useFetchReps('UT');
+    const { reps, loading, error } = useFetchReps('UT');
 
     return (
         <>
@@ -24,6 +24,10 @@ const RepFeed = () => {
                             )
                         })
                     }
+                </div>
+                <div className='layout-footer'>
+                    {error && 'Error'}
+                    {loading && 'Loading'}
                 </div>
 
             </div>

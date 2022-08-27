@@ -3,11 +3,12 @@ import axios from 'axios';
 
 const useFetchReps = (stateAbbreviation) => {
     const [reps, setReps] = useState([]);
-    // TODO: laoding, error states
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if(stateAbbreviation !== undefined) {
-            // TODO: set loading true
+            setLoading(true);
             axios({
                 method: 'GET',
                 url: `/representatives/${stateAbbreviation}`
@@ -15,15 +16,14 @@ const useFetchReps = (stateAbbreviation) => {
                 setReps(prevReps => {
                     return [...prevReps, ...res.data.results];
                 });
-                // TODO: set loading false 
+                setLoading(false);
             }).catch(e => {
-                // TODO: set error
+                setError(true);
             });
         }
     }, [stateAbbreviation]);
 
-    // TODO: return loading + error.
-    return { reps };
+    return { reps, loading, error };
 }
 
 export default useFetchReps;
