@@ -9,12 +9,13 @@ const useFetchReps = (stateAbbreviation) => {
     useEffect(() => {
         if(stateAbbreviation !== undefined) {
             setLoading(true);
+            setError(false);
             axios({
                 method: 'GET',
-                url: `/representatives/${stateAbbreviation}`
+                url: `/representatives/${stateAbbreviation}`,
             }).then(res => {
                 setReps(prevReps => {
-                    return [...prevReps, ...res.data.results];
+                    return [...new Set([...prevReps, ...res.data.results])];
                 });
                 setLoading(false);
             }).catch(e => {

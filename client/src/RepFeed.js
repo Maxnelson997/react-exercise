@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import useFetchReps from './hooks/useFetchReps';
 import './RepFeed.css';
 
