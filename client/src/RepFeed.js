@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
+import { clsx } from 'clsx';
 import useFetchReps from './hooks/useFetchReps';
 import './RepFeed.css';
 
@@ -22,7 +23,7 @@ const RepFeed = () => {
 
     return (
         <>
-            <div className='layout'>
+            <div className={clsx('layout', loading && 'layout-loading')}>
                 <h2 className='layout-header'>Find your reps.</h2>
                 <div className='layout-content'>
                     {
@@ -58,7 +59,6 @@ const RepFeed = () => {
                 </div>
                 <h2 className='layout-footer'>
                     {error && 'Error'}
-                    {loading && 'Loading'}
                     {states.length === 0 && 'All representatives fetched.'}
                 </h2>
 
