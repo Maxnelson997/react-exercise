@@ -11,7 +11,7 @@ const RepFeed = () => {
         if (loading) return;
         if (observer.current) observer.current.disconnect();
         observer.current = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) {
+            if (entries[0].isIntersecting && states.length > 0) {
                 let statesRemaining = [...states];
                 statesRemaining.shift();
                 setStates(statesRemaining);
@@ -48,7 +48,7 @@ const RepFeed = () => {
                                         <span>Office:</span><span><address>{rep.office}</address></span>
                                     </div>
                                     <div>
-                                        <span>Link:</span><span><a href={rep.link} target="_blank">{rep.link}</a></span>
+                                        <span>Link:</span><span><a href={rep.link} rel="noopener noreferrer" target="_blank">{rep.link}</a></span>
                                     </div>
                                 </div>
 
@@ -59,6 +59,7 @@ const RepFeed = () => {
                 <h2 className='layout-footer'>
                     {error && 'Error'}
                     {loading && 'Loading'}
+                    {states.length === 0 && 'All representatives fetched.'}
                 </h2>
 
             </div>
