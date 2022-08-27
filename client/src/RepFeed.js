@@ -45,10 +45,10 @@ const RepFeed = () => {
                                         <span>Phone:</span><span>{rep.phone}</span>
                                     </div>
                                     <div>
-                                        <span>Office:</span><span>{rep.office}</span>
+                                        <span>Office:</span><span><address>{rep.office}</address></span>
                                     </div>
                                     <div>
-                                        <span>Link:</span><span>{rep.link}</span>
+                                        <span>Link:</span><span><a href={rep.link} target="_blank">{rep.link}</a></span>
                                     </div>
                                 </div>
 

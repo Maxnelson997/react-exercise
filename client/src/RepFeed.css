@@ -40,9 +40,11 @@
 .rep div span:first-child {
     width: 10%;
     text-align: right;
+    font-family: gothamBook;
 }
 
 .rep div span:last-child {
     text-align: left;
     width: 90%;
+    font-family: gothamLight
 }
