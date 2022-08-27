@@ -3,8 +3,8 @@ import useFetchReps from './hooks/useFetchReps';
 import './RepFeed.css';
 
 const RepFeed = () => {
-    const [nextState, setNextState] = useState('UT')
-    const { reps, loading, error } = useFetchReps(nextState);
+    const [states, setStates] = useState(['UT', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'AK', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']);
+    const { reps, loading, error } = useFetchReps(states[0]);
 
     const observer = useRef();
     const lastRepElemRef = useCallback(node => {
@@ -12,14 +12,13 @@ const RepFeed = () => {
         if (observer.current) observer.current.disconnect();
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
-                // TODO: fetch reps for next state
-                // TODO: pop from a states collection perhaps?
-                console.log('last element reached');
-                setNextState('AZ');
+                let statesRemaining = [...states];
+                statesRemaining.shift();
+                setStates(statesRemaining);
             }
         });
         if (node) observer.current.observe(node);
-    }, [loading, nextState]);
+    }, [loading, states]);
 
     return (
         <>
