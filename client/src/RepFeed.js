@@ -29,12 +29,27 @@ const RepFeed = () => {
                     {
                         reps.map((rep, index) => {
                             return (
-                                <div className='rep' ref={(index === reps.length - 1) ? lastRepElemRef : undefined}>
+                                <div className='rep' ref={(index === reps.length - 1) ? lastRepElemRef : undefined} key={rep.name}>
                                     <div>
                                         <span>Name:</span><span>{rep.name}</span>
                                     </div>
                                     <div>
+                                        <span>Party:</span><span>{rep.party}</span>
+                                    </div>
+                                    <div>
                                         <span>State:</span><span>{rep.state}</span>
+                                    </div>
+                                    <div>
+                                        <span>District:</span><span>{rep.district}</span>
+                                    </div>
+                                    <div>
+                                        <span>Phone:</span><span>{rep.phone}</span>
+                                    </div>
+                                    <div>
+                                        <span>Office:</span><span>{rep.office}</span>
+                                    </div>
+                                    <div>
+                                        <span>Link:</span><span>{rep.link}</span>
                                     </div>
                                 </div>
 
